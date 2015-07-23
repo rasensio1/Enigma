@@ -2,25 +2,23 @@ require './encrypt'
 
 class CodeCracker
 
-  attr_reader  :date, :decrypted_string, :encrypted
-  attr_accessor :shift_a, :shift_b, :shift_c, :shift_d
+  attr_reader  :decrypted_string, :encrypted
+  attr_accessor :shift_a, :shift_b, :shift_c, :shift_d, :shift_e
 
-  def initialize(input_file, date)
+  def initialize(input_file)
     @encrypted = File.open("./#{input_file}").readlines[0].chomp.gsub(/\n/, '&')
     @decrypted_string = '..end..'
-    @date = InputDate.new(date).value
   end
 
   def map_shift_letter
     shift_map = @encrypted.chars.each_with_index.map do |char, index|
-      [char,index%4]
+      [char,index%5]
     end
-    shift_map
   end
 
   def last_seven_chars
     length = @encrypted.length
-    last_seven = map_shift_letter[length-7..length-1]
+    last_seven = map_shift_letter.last(7)
   end
 
   def characters_index(letter)
@@ -60,10 +58,9 @@ class CodeCracker
         @shift_c = group[0]
       when 3
         @shift_d = group[0]
+      when 4
+        @shift_e = group[0]
       end
     end
   end
-
-
-
 end

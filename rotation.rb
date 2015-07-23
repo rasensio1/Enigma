@@ -1,5 +1,5 @@
 class Rotation
-  attr_accessor :key, :a, :b, :c, :d
+  attr_accessor :key, :a, :b, :c, :d, :e
 
   def initialize(key = '')
     @key = key
@@ -10,6 +10,7 @@ class Rotation
     @b = @key[1..2].to_i
     @c = @key[2..3].to_i
     @d = @key[3..4].to_i
+    @e = (@key[0] + @key[4]).to_i
   end
 
   def find_rotations(cracker, offset)
@@ -17,6 +18,7 @@ class Rotation
     @b = cracker.shift_b - offset.b
     @c = cracker.shift_c - offset.c
     @d = cracker.shift_d - offset.d
+    @e = cracker.shift_e - offset.e
   end
 
 end

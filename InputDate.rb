@@ -13,6 +13,7 @@ class InputDate
     string += DateTime.now.day.to_s.rjust(2, "0")
     string += DateTime.now.month.to_s.rjust(2, "0")
     string += DateTime.now.year.to_s[2..3]
+    string
   end
 
 

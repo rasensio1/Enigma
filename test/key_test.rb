@@ -13,7 +13,7 @@ class KeyTest < Minitest::Test
 
   def test_it_creates_a_key_from_rotations
 
-    cracker = CodeCracker.new("test/input_3_encrypted.txt", "101015")
+    cracker = CodeCracker.new("test/input_3_encrypted.txt")
     cracker.map_shift_to_letter
 
     offset1 = Offset.new("101015")

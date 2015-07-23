@@ -15,6 +15,7 @@ class Key
     b = rotation.b.to_s
     c = rotation.c.to_s
     d = rotation.d.to_s
+    e = rotation.e.to_s
     a+c+d[1]
   end
 

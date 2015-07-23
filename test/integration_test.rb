@@ -9,7 +9,7 @@ class IntegrationTest < Minitest::Test
     offset1.set_offsets
     message1 = Message.new("/test/input.txt", rotation1, offset1)
     message1.encrypt(rotation1, offset1)
-    assert_equal 't3HV0VSY3 &', message1.output
+    assert_equal 'w1HS8LFKY5s', message1.output
   end
 
   def test_it_encrypts_another_message #..end..
@@ -19,7 +19,7 @@ class IntegrationTest < Minitest::Test
     offset1.set_offsets
     message1 = Message.new("/test/input_2.txt", rotation1, offset1)
     message1.encrypt(rotation1, offset1)
-    assert_equal 'JWAXpWh', message1.output
+    assert_equal 'MUAUxMU', message1.output
   end
 
   def test_it_encrypts_a_third_message #..end..
@@ -29,7 +29,7 @@ class IntegrationTest < Minitest::Test
     offset1.set_offsets
     message1 = Message.new("/test/crack_decrypt.txt", rotation1, offset1)
     message1.encrypt(rotation1, offset1)
-    assert_equal 'nVre1JL19PrIL.U1bPLeFFV2YBUUYi', message1.output
+    assert_equal 'oWsf1ACsaFY3gSAYmaWAGGW3Y6LL3Y', message1.output
   end
 
   def test_it_decrypts_the_message
@@ -65,7 +65,7 @@ class IntegrationTest < Minitest::Test
 
 
   def test_it_cracks_a_code_and_decrypts_the_message
-    cracker = CodeCracker.new("/test/crack_encrypt.txt", "111111")
+    cracker = CodeCracker.new("/test/crack_encrypt.txt")
     cracker.map_shift_to_letter
 
     offset1 = Offset.new("111111")

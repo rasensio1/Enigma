@@ -15,10 +15,10 @@ class MessageTest < Minitest::Test
     message1 = Message.new("/test/input.txt", rotation1, offset1)
     message1.total_shift(rotation1, offset1)
 
-    assert_equal 16, message1.shift_a
-    assert_equal 24, message1.shift_b
-    assert_equal 40, message1.shift_c
-    assert_equal 46, message1.shift_d
+    assert_equal 21, message1.shift_a
+    assert_equal 27, message1.shift_b
+    assert_equal 35, message1.shift_c
+    assert_equal 51, message1.shift_d
   end
 
 end
